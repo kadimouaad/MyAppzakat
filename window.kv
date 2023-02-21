@@ -1,0 +1,44 @@
+WindowManger:
+    MainWindow:
+
+
+<MainWindow>:
+    name:"Calculator"
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout:
+            size_hint: 1,1
+
+        BoxLayout:
+            spacing: dp(10)
+            padding: dp(30)
+            ToggleButton:
+                id: "Gold"
+                group: 'sex'
+                background_normal: "img\Gold_up.png"
+                background_down: "img\Gold_down.png"
+            ToggleButton:
+                group: 'sex'
+                name: "T2"
+                background_normal: "img\Arg_up.png"
+                background_down: "img\Arg_down.png"
+            ToggleButton:
+                group: 'sex'
+                name: "T3"
+                background_normal: "img\Cattle_up.png"
+                background_down: "img\Cattle_down.png"
+        BoxLayout:
+            ToggleButton:
+            ToggleButton:
+            ToggleButton:
+        BoxLayout:
+            TextInput:
+                id: my_text_input
+            Label:
+                id: my_result_label
+            Button:
+                text: 'Calculate'
+                on_press:
+                    root.calculate()
+            Label:
+                text: ""

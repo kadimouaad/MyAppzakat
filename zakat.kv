@@ -1,0 +1,139 @@
+WindowManger:
+    MainWindow:
+    SecondWindow:
+    ThirdWindow:
+
+
+<MainWindow>:
+    name: "Logo"
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: dp(10)
+        padding: dp(40)
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'img\sign up page.png'
+        BoxLayout:
+            size_hint: 10,10
+        Button:     # sign up button
+            height: dp(30)
+            background_normal: "img\Button.png"
+            background_down: "img\Button_down.png"
+            on_release: app.root.current = "Home"
+
+        Button:
+            height: dp(30)
+            background_normal: "img\Login.png"
+            background_down: "img\Button2_down.png"
+            on_release: app.root.current = "Home"
+
+<SecondWindow>:
+    name: "Home"
+    BoxLayout:
+        Image:
+            source: "img\Home.png"
+            GridLayout:
+
+                Button:
+                    size: dp(81),dp(41)
+                    pos: dp(20),dp(16.3)
+                    background_normal: "img\Home_button.png"
+                    background_down: "img\Home_down.png"
+                    on_release: app.root.current = "Home"
+                Button:
+                    size: dp(81),dp(41)
+                    pos: dp(135),dp(16.3)
+                    background_normal: "img\Calculator_up.png"
+                    background_down: "img\Calculator_down.png"
+
+
+                    on_release:
+                        app.root.current = "Calculator"
+                        root.manager.transition.direction = "left"
+
+
+
+<ThirdWindow>:
+    name:"Calculator"
+    BoxLayout:
+
+        orientation: 'vertical'
+
+
+        BoxLayout:
+
+
+            size_hint: 1,1
+
+
+        BoxLayout:
+            spacing: dp(10)
+            padding: dp(1)
+
+            ToggleButton:
+                id: "Gold"
+                group: 'buttons'
+                background_normal: "img\Gold_up.png"
+                background_down: "img\Gold_down.png"
+                on_state: root.on_state_1(self)
+
+
+
+
+            ToggleButton:
+                group: 'buttons'
+                name: "T2"
+                background_normal: "img\Arg_up.png"
+                background_down: "img\Arg_down.png"
+                on_state: root.on_state_2(self)
+
+
+
+
+            ToggleButton:
+
+                group: 'buttons'
+                name: "T3"
+                background_normal: "img\Cattle_up.png"
+                background_down: "img\Cattle_down.png"
+                on_state: root.on_state_3(self)
+
+
+
+        BoxLayout:
+            spacing: dp(10)
+            padding: dp(30)
+            ToggleButton:
+                group: 'Buttons'
+                text: 'Silver'
+                on_state: root.on_state_4(self)
+            ToggleButton:
+                group:'Buttons'
+                text: 'Liq'
+                on_state: root.on_state_5(self)
+
+        BoxLayout:
+            TextInput:
+                id: my_text_input
+
+            Label:
+                id: my_result_label
+
+            Button:
+                text: 'Calculate'
+                on_press:
+                    root.calculator()
+
+
+
+
+
+
+
+
+
+                
+
+
